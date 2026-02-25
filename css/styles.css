@@ -1,0 +1,31 @@
+/* css */
+section {
+    border: 1px solid black;
+    margin-bottom: 3rem;
+    padding: 2rem 1rem 0;
+}
+.animals {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+img {
+    padding: 10px;
+}
+img:hover {
+    background-color: gold;
+}
+img:active {
+    background-color: rgb(255, 204, 0);
+}
+#details {
+    min-height: 150px;
+    text-align: center;
+}
+
+.card{
+    border: 1px blue solid;
+    padding: 2rem;
+    margin: 2rem;
+}
