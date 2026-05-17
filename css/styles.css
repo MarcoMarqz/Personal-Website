@@ -1,31 +1,41 @@
 /* css */
-section {
-    border: 1px solid black;
-    margin-bottom: 3rem;
-    padding: 2rem 1rem 0;
-}
-.animals {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    gap: 1rem;
-}
-img {
-    padding: 10px;
-}
-img:hover {
-    background-color: gold;
-}
-img:active {
-    background-color: rgb(255, 204, 0);
-}
-#details {
-    min-height: 150px;
-    text-align: center;
-}
 
-.card{
-    border: 1px blue solid;
+body {
+    background-color: ghostwhite;
+}
+/* tab buttons */
+.tablist {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+    gap: 10px;
+    background-color: transparent;
+}
+button {
+    background: lavender;
+    color: rgba(0, 0, 0, 0.7);
+    font-size: larger;
+    border: 0;
+    border-radius: 5px 5px 0 0;
+    cursor: pointer;
+    padding: 1rem;
+}
+button[aria-selected='true'] {
+    background: white;
+    border-left: 1px solid grey;
+    border-top: 1px solid grey;
+    border-right: 1px solid grey;
+    position: relative;
+    top: 1px;
+}
+button:focus {
+    outline: 0;
+}
+/* tab panels */
+.tabpanel {
     padding: 2rem;
-    margin: 2rem;
+    background-color: white;
+    border: 1px solid grey;
+}
+.lead {
+    font-size: larger;
 }
