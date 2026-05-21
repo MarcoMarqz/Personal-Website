@@ -1,119 +1,226 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
 
 body{
-  --grid-color: rgba(69, 31, 31, 0.126);
+    --dot-color: rgba(69, 31, 31, 0.168);
 
-  background-color: #f1fdfb;
-  font-family:  "Michroma", sans-serif;
-  background-image:
-    linear-gradient(var(--grid-color) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-color: #f1fdfb;
+    font-family: "Michroma", sans-serif;
 
-  background-size: 40px 40px;
+    /* Dot background pattern */
+    background-image:
+        radial-gradient(var(--dot-color) 1px, transparent 1px);
+
+    background-size: 40px 40px;
+
+    min-height: 100vh;
 }
+
+
+/* =========================
+   WINDOW CONTAINER
+========================= */
+
 .border{
+    margin: 2rem;
 
-    margin:5rem;
     background-color: #323E48;
-    border-radius: 14px 14px;
-    padding:.5rem;
-    filter: drop-shadow(6px 10px 10px rgba(0, 0, 0, 0.424));
 
+    border-radius: 14px;
+
+    padding: .5rem;
+
+    filter: drop-shadow(
+        6px 10px 10px rgba(0, 0, 0, 0.424)
+    );
+
+    animation: openWindow .25s ease;
 }
 
-/* tab buttons */
-.tablist {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
-    gap: 5px;
-    background-color: transparent;
+
+/* =========================
+   WINDOW TOP BAR
+========================= */
+
+.window-top{
+    display: flex;
+    justify-content: flex-end;
+
     padding-bottom: .5rem;
 }
-button {
-    background: #525e78;
+
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+#close-btn{
+    width: 35px;
+    height: 35px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #ff6b6b;
     color: white;
-    font-size: larger;
 
-    border: none; /* removes border */
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: 1;
 
-    border-radius: 12px 12px 12px 12px;
     cursor: pointer;
-    padding: .8rem;
+
+    transition: .2s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-button[aria-selected='true'] {
+#close-btn:hover{
+    background: #ff4d4d;
+
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   TAB BUTTONS
+========================= */
+
+.tablist{
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(75px, 1fr));
+
+    gap: 5px;
+
+    padding-bottom: .5rem;
+}
+
+button{
+    background: #525e78;
+    color: white;
+
+    font-size: larger;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    padding: .8rem;
+
+    transition: .2s;
+}
+
+button:hover{
+    background-color: #7889ae;
+}
+
+button:focus{
+    outline: 0;
+}
+
+button[aria-selected='true']{
     background: rgb(216, 216, 254);
+
     color: #525e78;
-
-    border: none; /* removes border */
-
-    border-radius: 12px 12px 12px 12px;
 
     position: relative;
     top: 1px;
 }
 
-.tabpanel {
+
+/* =========================
+   TAB CONTENT
+========================= */
+
+.tabpanel{
     padding: 2rem;
+
     background-color: #323E48;
+
     color: white;
-    font-family:"The Girl Next Door", cursive;
 
-    border-top: 1px solid white; /* removes border */
+    font-family: "The Girl Next Door", cursive;
 
-    border-radius: 0 0 16px 16px; /* rounded bottom corners */
-}
-button:focus {
-    outline: 0;
+    border-top: 1px solid white;
+
+    border-radius: 0 0 16px 16px;
 }
 
-.lead {
+.lead{
     font-size: larger;
 }
 
 
-/* desktop app icon */
+/* =========================
+   DESKTOP APP ICON
+========================= */
 
 .application{
-    padding: 2rem;
+    position: absolute;
+
+    bottom:520px; /* move up/down */
+    left: 61%;     /* move left/right */
+
+    transform: translateX(-50%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .desktop-app{
-    width: 90px;
+    width: 70px;
+    height: 70px;
 
     display: flex;
+
     flex-direction: column;
     align-items: center;
 
-    gap: .5rem;
-
     cursor: pointer;
+
     user-select: none;
 }
 
-.desktop-app{
-    font-size: 3rem;
-}
+.desktop-app img{
+    width: 70px;
+    height: 70px;
 
-.desktop-app span{
-    font-size: .8rem;
-    color: #323E48;
-    text-align: center;
-}
+    object-fit: cover;
 
-/* hover animation */
+    border-radius: 16px;
 
-#app-icon:hover{
-    transform: scale(1.05);
     transition: .2s;
 }
 
-/* opening animation */
-
-.border{
-    animation: openWindow .25s ease;
+.desktop-app img:hover{
+    transform: scale(1.09);
 }
 
+.desktop-app span{
+    margin-top: .5rem;
+
+    font-size: .8rem;
+
+    color: #323E48;
+
+    text-align: center;
+}
+
+
+/* =========================
+   OPEN WINDOW ANIMATION
+========================= */
+
 @keyframes openWindow{
+
     from{
         opacity: 0;
         transform: scale(.95);
@@ -122,5 +229,81 @@ button:focus {
     to{
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+
+/* =========================
+        Background Design
+========================= */
+.logo{
+    position: absolute;
+
+    top: 20px;
+    left: 6%;
+
+    width: 300px;
+    height: auto;
+}
+
+.drawing-figure{
+    position: absolute;
+
+    bottom:15px;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 400px;
+    height: auto;
+}
+
+/* =========================
+   MOBILE STYLES
+========================= */
+
+@media (max-width: 768px){
+
+    .border{
+        margin: 1rem;
+    }
+
+    .tabpanel{
+        padding: 1.2rem;
+    }
+
+    button{
+        font-size: 1rem;
+
+        padding: .7rem;
+    }
+
+    .desktop-app img{
+        width: 60px;
+        height: 60px;
+    }
+
+    .desktop-app span{
+        font-size: .7rem;
+    }
+    
+}
+
+
+/* =========================
+   DESKTOP STYLES
+========================= */
+
+@media (min-width: 769px){
+
+    .border{
+        margin: 5rem auto;
+
+        width: 80%;
+        max-width: 1100px;
+    }
+
+    .tabpanel{
+        min-height: 400px;
     }
 }
