@@ -1,41 +1,126 @@
-/* css */
 
-body {
-    background-color: ghostwhite;
+body{
+  --grid-color: rgba(69, 31, 31, 0.126);
+
+  background-color: #f1fdfb;
+  font-family:  "Michroma", sans-serif;
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+
+  background-size: 40px 40px;
 }
+.border{
+
+    margin:5rem;
+    background-color: #323E48;
+    border-radius: 14px 14px;
+    padding:.5rem;
+    filter: drop-shadow(6px 10px 10px rgba(0, 0, 0, 0.424));
+
+}
+
 /* tab buttons */
 .tablist {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
-    gap: 10px;
+    gap: 5px;
     background-color: transparent;
+    padding-bottom: .5rem;
 }
 button {
-    background: lavender;
-    color: rgba(0, 0, 0, 0.7);
+    background: #525e78;
+    color: white;
     font-size: larger;
-    border: 0;
-    border-radius: 5px 5px 0 0;
+
+    border: none; /* removes border */
+
+    border-radius: 12px 12px 12px 12px;
     cursor: pointer;
-    padding: 1rem;
+    padding: .8rem;
 }
+
 button[aria-selected='true'] {
-    background: white;
-    border-left: 1px solid grey;
-    border-top: 1px solid grey;
-    border-right: 1px solid grey;
+    background: rgb(216, 216, 254);
+    color: #525e78;
+
+    border: none; /* removes border */
+
+    border-radius: 12px 12px 12px 12px;
+
     position: relative;
     top: 1px;
+}
+
+.tabpanel {
+    padding: 2rem;
+    background-color: #323E48;
+    color: white;
+    font-family:"The Girl Next Door", cursive;
+
+    border-top: 1px solid white; /* removes border */
+
+    border-radius: 0 0 16px 16px; /* rounded bottom corners */
 }
 button:focus {
     outline: 0;
 }
-/* tab panels */
-.tabpanel {
-    padding: 2rem;
-    background-color: white;
-    border: 1px solid grey;
-}
+
 .lead {
     font-size: larger;
+}
+
+
+/* desktop app icon */
+
+.application{
+    padding: 2rem;
+}
+
+.desktop-app{
+    width: 90px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: .5rem;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+.desktop-app{
+    font-size: 3rem;
+}
+
+.desktop-app span{
+    font-size: .8rem;
+    color: #323E48;
+    text-align: center;
+}
+
+/* hover animation */
+
+#app-icon:hover{
+    transform: scale(1.05);
+    transition: .2s;
+}
+
+/* opening animation */
+
+.border{
+    animation: openWindow .25s ease;
+}
+
+@keyframes openWindow{
+    from{
+        opacity: 0;
+        transform: scale(.95);
+    }
+
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
 }

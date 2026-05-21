@@ -10,58 +10,95 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Michroma&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=The+Girl+Next+Door&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-
-    <h1>Tabs</h1>
-
-<div id="tabs">
-    <div class="tablist" role="tablist" aria-label="Web Languages">
-        <button role="tab" aria-selected="true" id="html">HTML</button>
-        <button role="tab" aria-selected="false" id="css">CSS</button>
-        <button role="tab" aria-selected="false" id="js">JS</button>
+    <div class="application" id="app-icon">
+      <div class="desktop-app">
+        💻
+        <span>Portfolio</span>
+      </div>
     </div>
 
-    <!-- Definitions from Wikipedia -->
-    <div class="tabpanel" role="tabpanel" aria-labelledby="html">
-        <h2>HTML</h2>
-        <p class="lead">HTML gives our content meaning and structure.</p>
-        <p>
+    <!-- window -->
+    <div class="border" id="window" hidden>
+        <div class =" window-top"></div>
+      <div id="tabs">
+        <div class="tablist" role="tablist" aria-label="Web Languages">
+          <button role="tab" aria-selected="true" id="home">Home</button>
+
+          <button role="tab" aria-selected="false" id="about">About Me</button>
+
+          <button role="tab" aria-selected="false" id="projects">
+            Projects
+          </button>
+
+          <button role="tab" aria-selected="false" id="contact">Contact</button>
+        </div>
+
+        <!-- Home -->
+        <div class="tabpanel" role="tabpanel" aria-labelledby="home">
+          <h2>Home</h2>
+
+          <p class="lead">HTML gives our content meaning and structure.</p>
+
+          <p>
             HyperText Markup Language or HTML is the standard markup language
-            for documents designed to be displayed in a web browser. It defines
-            the content and structure of web content. It is often assisted by
-            technologies such as Cascading Style Sheets and scripting languages
-            such as JavaScript.
-        </p>
-    </div>
-    <div class="tabpanel" role="tabpanel" aria-labelledby="css" hidden="true">
-        <h2>CSS</h2>
-        <p class="lead">
+            for documents designed to be displayed in a web browser.
+          </p>
+        </div>
+
+        <!-- About -->
+        <div class="tabpanel" role="tabpanel" aria-labelledby="about" hidden>
+          <h2>About Me</h2>
+
+          <p class="lead">
             CSS allows us to layout content and make it beautiful.
-        </p>
-        <p>
+          </p>
+
+          <p>
             Cascading Style Sheets is a style sheet language used for specifying
-            the presentation and styling of a document written in a markup
-            language such as HTML or XML. CSS is a cornerstone technology of the
-            World Wide Web, alongside HTML and JavaScript.
-        </p>
-    </div>
-    <div class="tabpanel" role="tabpanel" aria-labelledby="js" hidden="true">
-        <h2>JS</h2>
-        <p class="lead">JS makes our interfaces more interactive!</p>
-        <p>
-            JavaScript, often abbreviated as JS, is a programming language and
-            core technology of the World Wide Web, alongside HTML and CSS. As of
-            2024, 98.8% of websites use JavaScript on the client side for
-            webpage behavior, often incorporating third-party libraries.
-        </p>
-    </div>
-</div>
+            the presentation and styling of a document.
+          </p>
+        </div>
 
-   
-<script src="js/main.js"></script>
+        <!-- Projects -->
+        <div class="tabpanel" role="tabpanel" aria-labelledby="projects" hidden>
+          <h2>Projects</h2>
 
-  
+          <p class="lead">JS makes our interfaces more interactive!</p>
+
+          <p>
+            JavaScript is a programming language and core technology of the Web.
+          </p>
+        </div>
+
+        <!-- Contact -->
+        <div class="tabpanel" role="tabpanel" aria-labelledby="contact" hidden>
+          <h2>Contact</h2>
+
+          <p class="lead">Reach out anytime.</p>
+
+          <p>Add your email, LinkedIn, GitHub, or social links here.</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </body>
 </html>
