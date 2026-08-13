@@ -3,107 +3,105 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-
+    <meta name="description" content="Marco Marquez's software development portfolio." />
+    <title>Marco Marquez | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Michroma&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=The+Girl+Next+Door&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600&family=Hachi+Maru+Pop&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+    <img src="images/mlogo-1.png" class="logo" alt="Marco Marquez" />
+    <img src="images/mdr-1.png" class="drawing-figure" alt="" />
+    <button class="application desktop-app" id="app-icon" type="button" aria-label="Open portfolio">
+      <img src="images/folder-icon-lg.png" alt="" />
+      <span>Portfolio</span>
+    </button>
+    <div id="bg-dots" aria-hidden="true"></div>
 
-          <img src ="images/mlogo-1.png" class ="logo">
-          <img src = "images/mdr-1.png" class ="drawing-figure">
-    <div class="application" id="app-icon">
-      <div class="desktop-app">
-        <img src ="images/folder-icon-lg.png" alt="portfolio icon">
-        <span>Portfolio</span>
+    <main class="border" id="window">
+      <div class="tablist" role="tablist" aria-label="Portfolio sections">
+        <button role="tab" aria-selected="true" aria-controls="home-panel" id="home" tabindex="0">Home</button>
+        <button role="tab" aria-selected="false" aria-controls="about-panel" id="about" tabindex="-1">About Me</button>
+        <button role="tab" aria-selected="false" aria-controls="projects-panel" id="projects" tabindex="-1">Projects</button>
+        <button role="tab" aria-selected="false" aria-controls="contact-panel" id="contact" tabindex="-1">Contact</button>
+        <button id="close-btn" type="button" aria-label="Close portfolio">&times;</button>
       </div>
-    </div>
 
-    <!-- window -->
-    <div class="border" id="window" hidden>
-        <div class =" window-top">
-            <button id ="close-btn">X</button>
+      <section class="tabpanel" role="tabpanel" id="home-panel" aria-labelledby="home">
+        <div class="home-layout">
+          <div>
+            <p class="section-label">Welcome</p>
+            <div class="typing-effect"><h3>Hi! I'm <span class="auto-type"></span></h3></div>
+            <p class="lead">A Computer Science student at Indiana University, interested in software engineering, web development, and machine learning.</p>
+            <p>I enjoy turning ideas into thoughtful, useful experiences—whether that means building a website, developing an application, or exploring a machine learning problem.</p>
+          </div>
+          <div class="home-image"><img src="images/profile.jpg" alt="Marco Marquez" /></div>
         </div>
-      <div id="tabs">
-        <div class="tablist" role="tablist" aria-label="Web Languages">
-          <button role="tab" aria-selected="true" id="home">Home</button>
+      </section>
 
-          <button role="tab" aria-selected="false" id="about">About Me</button>
-
-          <button role="tab" aria-selected="false" id="projects">
-            Projects
-          </button>
-
-          <button role="tab" aria-selected="false" id="contact">Contact</button>
+      <section class="tabpanel" role="tabpanel" id="about-panel" aria-labelledby="about" hidden>
+        <div class="about-layout">
+          <div>
+            <p class="section-label">A little more about me</p>
+            <h2>Curious by nature, practical by design.</h2>
+            <p class="lead">I’m Marco, a Computer Science student with a minor in Web Design and Development at Indiana University.</p>
+            <p>I like the process of taking a challenging problem apart, learning what I need to solve it, and shaping the result into something clear and approachable for people to use.</p>
+            <p>My interests sit at the intersection of software engineering, interactive web experiences, and machine learning. I’m especially motivated by projects that make technology feel more useful, understandable, and human.</p>
+          </div>
+          <aside class="about-note">
+            <p class="section-label">Tools I’m growing with</p>
+            <ul class="skills" aria-label="Areas of interest">
+              <li>Software engineering</li>
+              <li>Web development</li>
+              <li>Machine learning</li>
+              <li>UI design</li>
+            </ul>
+          </aside>
         </div>
+      </section>
 
-        <!-- Home -->
-        <div class="tabpanel" role="tabpanel" aria-labelledby="home">
-          <h2>Home</h2>
-
-          <p class="lead">HTML gives our content meaning and structure.</p>
-
-          <p>
-            HyperText Markup Language or HTML is the standard markup language
-            for documents designed to be displayed in a web browser.
-          </p>
+      <section class="tabpanel" role="tabpanel" id="projects-panel" aria-labelledby="projects" hidden>
+        <p class="section-label">Selected work</p>
+        <h2>Projects</h2>
+        <p class="lead">A growing collection of work in web development, software, and machine learning.</p>
+        <div class="projects-grid">
+          <article class="project-card">
+            <h3>Portfolio Website</h3>
+            <p>This interactive desktop-inspired site is where I share my work, interests, and ways to get in touch.</p>
+            <a href="https://github.com/MarcoMarqz" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">&rarr;</span></a>
+          </article>
+          <article class="project-card">
+            <h3>Web Development</h3>
+            <p>I build responsive interfaces with a focus on clear layouts, thoughtful interactions, and an enjoyable experience on every screen size.</p>
+            <a href="https://github.com/MarcoMarqz" target="_blank" rel="noopener noreferrer">Explore my repositories <span aria-hidden="true">&rarr;</span></a>
+          </article>
+          <article class="project-card">
+            <h3>Learning in Public</h3>
+            <p>I’m continually expanding this collection as I take on new coursework, experiments, and collaborative projects.</p>
+            <a href="#contact" data-tab-target="contact">Let’s collaborate <span aria-hidden="true">&rarr;</span></a>
+          </article>
         </div>
+      </section>
 
-        <!-- About -->
-        <div class="tabpanel" role="tabpanel" aria-labelledby="about" hidden>
-          <h2>About Me</h2>
-
-          <p class="lead">
-            CSS allows us to layout content and make it beautiful.
-          </p>
-
-          <p>
-            Cascading Style Sheets is a style sheet language used for specifying
-            the presentation and styling of a document.
-          </p>
+      <section class="tabpanel" role="tabpanel" id="contact-panel" aria-labelledby="contact" hidden>
+        <p class="section-label">Get in touch</p>
+        <h2>Contact</h2>
+        <p class="lead">I’m always interested in discussing technology, software development, internships, and collaborative projects.</p>
+        <div class="contact-info">
+          <p><i class="fa-brands fa-linkedin" aria-hidden="true"></i><a href="https://www.linkedin.com/in/marco-marquez-us1/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+          <p><i class="fa-brands fa-github" aria-hidden="true"></i><a href="https://github.com/MarcoMarqz" target="_blank" rel="noopener noreferrer">GitHub</a></p>
+          <p><i class="fa-solid fa-envelope" aria-hidden="true"></i><a href="mailto:marcomarquez.a1@gmail.com">marcomarquez.a1@gmail.com</a></p>
         </div>
-
-        <!-- Projects -->
-        <div class="tabpanel" role="tabpanel" aria-labelledby="projects" hidden>
-          <h2>Projects</h2>
-
-          <p class="lead">JS makes our interfaces more interactive!</p>
-
-          <p>
-            JavaScript is a programming language and core technology of the Web.
-          </p>
-        </div>
-
-        <!-- Contact -->
-        <div class="tabpanel" role="tabpanel" aria-labelledby="contact" hidden>
-          <h2>Contact</h2>
-
-          <p class="lead">Reach out anytime.</p>
-
-          <p>Add your email, LinkedIn, GitHub, or social links here.</p>
-        </div>
-      </div>
-    </div>
+        <p>Feel free to reach out with an opportunity, a question, or just to say hello.</p>
+      </section>
+    </main>
 
     <script src="js/main.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
+    <script>
+      new Typed(".auto-type", { strings: ["Marco", "Marquez"], typeSpeed: 150, backSpeed: 90, loop: true });
+    </script>
   </body>
 </html>

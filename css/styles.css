@@ -1,309 +1,85 @@
-/* =========================
-   GLOBAL STYLES
-========================= */
-
-body{
-    --dot-color: rgba(69, 31, 31, 0.168);
-
-    background-color: #f1fdfb;
-    font-family: "Michroma", sans-serif;
-
-    /* Dot background pattern */
-    background-image:
-        radial-gradient(var(--dot-color) 1px, transparent 1px);
-
-    background-size: 40px 40px;
-
-    min-height: 100vh;
+/* Base */
+:root {
+  --ink: #f3f6ff;
+  --muted: #cfd8ff;
+  --panel: #1f2436;
+  --panel-light: #2c3249;
+  --accent: #fefe00;
 }
 
+* { box-sizing: border-box; }
 
-/* =========================
-   WINDOW CONTAINER
-========================= */
-
-.border{
-    margin: 2rem;
-
-    background-color: #323E48;
-
-    border-radius: 14px;
-
-    padding: .5rem;
-
-    filter: drop-shadow(
-        6px 10px 10px rgba(0, 0, 0, 0.424)
-    );
-
-    animation: openWindow .25s ease;
+body {
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background-color: #000000e0;
+  background-image: linear-gradient(90deg, rgba(86, 86, 86, 0.081) 1px, transparent 1px);
+  background-size: 40px 40px;
+  color: var(--ink);
+  font-family: "Hachi Maru Pop", cursive;
 }
 
-
-/* =========================
-   WINDOW TOP BAR
-========================= */
-
-.window-top{
-    display: flex;
-    justify-content: flex-end;
-
-    padding-bottom: .5rem;
-}
-
-
-/* =========================
-   CLOSE BUTTON
-========================= */
-
-#close-btn{
-    width: 35px;
-    height: 35px;
-
-    border: none;
-    border-radius: 10px;
-
-    background: #ff6b6b;
-    color: white;
-
-    font-size: 1.1rem;
-    font-weight: bold;
-    line-height: 1;
-
-    cursor: pointer;
-
-    transition: .2s;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#close-btn:hover{
-    background: #ff4d4d;
-
-    transform: scale(1.05);
-}
-
-
-/* =========================
-   TAB BUTTONS
-========================= */
-
-.tablist{
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(75px, 1fr));
-
-    gap: 5px;
-
-    padding-bottom: .5rem;
-}
-
-button{
-    background: #525e78;
-    color: white;
-
-    font-size: larger;
-
-    border: none;
-
-    border-radius: 12px;
-
-    cursor: pointer;
-
-    padding: .8rem;
-
-    transition: .2s;
-}
-
-button:hover{
-    background-color: #7889ae;
-}
-
-button:focus{
-    outline: 0;
-}
-
-button[aria-selected='true']{
-    background: rgb(216, 216, 254);
-
-    color: #525e78;
-
-    position: relative;
-    top: 1px;
-}
-
-
-/* =========================
-   TAB CONTENT
-========================= */
-
-.tabpanel{
-    padding: 2rem;
-
-    background-color: #323E48;
-
-    color: white;
-
-    font-family: "The Girl Next Door", cursive;
-
-    border-top: 1px solid white;
-
-    border-radius: 0 0 16px 16px;
-}
-
-.lead{
-    font-size: larger;
-}
-
-
-/* =========================
-   DESKTOP APP ICON
-========================= */
-
-.application{
-    position: absolute;
-
-    bottom:520px; /* move up/down */
-    left: 61%;     /* move left/right */
-
-    transform: translateX(-50%);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.desktop-app{
-    width: 70px;
-    height: 70px;
-
-    display: flex;
-
-    flex-direction: column;
-    align-items: center;
-
-    cursor: pointer;
-
-    user-select: none;
-}
-
-.desktop-app img{
-    width: 70px;
-    height: 70px;
-
-    object-fit: cover;
-
-    border-radius: 16px;
-
-    transition: .2s;
-}
-
-.desktop-app img:hover{
-    transform: scale(1.09);
-}
-
-.desktop-app span{
-    margin-top: .5rem;
-
-    font-size: .8rem;
-
-    color: #323E48;
-
-    text-align: center;
-}
-
-
-/* =========================
-   OPEN WINDOW ANIMATION
-========================= */
-
-@keyframes openWindow{
-
-    from{
-        opacity: 0;
-        transform: scale(.95);
-    }
-
-    to{
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-
-/* =========================
-        Background Design
-========================= */
-.logo{
-    position: absolute;
-
-    top: 20px;
-    left: 6%;
-
-    width: 300px;
-    height: auto;
-}
-
-.drawing-figure{
-    position: absolute;
-
-    bottom:15px;
-
-    left: 50%;
-    transform: translateX(-50%);
-
-    width: 400px;
-    height: auto;
-}
-
-/* =========================
-   MOBILE STYLES
-========================= */
-
-@media (max-width: 768px){
-
-    .border{
-        margin: 1rem;
-    }
-
-    .tabpanel{
-        padding: 1.2rem;
-    }
-
-    button{
-        font-size: 1rem;
-
-        padding: .7rem;
-    }
-
-    .desktop-app img{
-        width: 60px;
-        height: 60px;
-    }
-
-    .desktop-app span{
-        font-size: .7rem;
-    }
-    
-}
-
-
-/* =========================
-   DESKTOP STYLES
-========================= */
-
-@media (min-width: 769px){
-
-    .border{
-        margin: 5rem auto;
-
-        width: 80%;
-        max-width: 1100px;
-    }
-
-    .tabpanel{
-        min-height: 400px;
-    }
+#bg-dots { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.dot-wrapper { position: absolute; transform: translate(var(--push-x, 0), var(--push-y, 0)); transition: transform .3s ease-out; }
+.dot { width: 3px; height: 3px; border-radius: 50%; background: #fff; animation: float 5s ease-in-out infinite alternate; }
+@keyframes float { to { transform: translate(200px, -10px); } }
+
+.logo { position: absolute; top: 20px; left: 6%; width: min(300px, 45vw); height: auto; }
+.drawing-figure { position: fixed; right: 3%; bottom: 15px; width: min(400px, 35vw); height: auto; opacity: .9; pointer-events: none; }
+
+.application { position: absolute; top: 180px; left: 61%; z-index: 1; transform: translateX(-50%); }
+.desktop-app { display: flex; width: 82px; flex-direction: column; align-items: center; cursor: pointer; user-select: none; }
+.desktop-app img { width: 70px; height: 70px; border-radius: 16px; object-fit: cover; transition: transform .2s; }
+.desktop-app:hover img, .desktop-app:focus-within img { transform: scale(1.09); }
+.desktop-app p { margin: .5rem 0 0; color: var(--ink); font-size: .7rem; text-shadow: 0 1px 3px #000; }
+
+.border { position: relative; z-index: 10; width: min(1100px, calc(100% - 2rem)); margin: 5rem auto; }
+.tablist { display: flex; align-items: center; gap: .5rem; padding: .75rem; overflow-x: auto; background: rgba(20, 24, 36, .9); border: 1px solid rgba(255, 255, 255, .08); border-radius: 8px 8px 0 0; backdrop-filter: blur(10px); }
+
+button { padding: .7rem 1rem; border: 1px solid transparent; border-radius: 5px; background: transparent; color: var(--muted); font-family: inherit; font-size: .9rem; cursor: pointer; transition: .25s ease; }
+button:hover, button:focus-visible { background: rgba(255, 255, 255, .08); color: #fff; outline: 2px solid var(--accent); outline-offset: 2px; }
+button[aria-selected="true"] { z-index: 2; border-color: rgba(255, 255, 255, .08); background: #485580; color: #fff; box-shadow: 0 8px 20px rgba(0, 0, 0, .25), inset 0 1px rgba(255, 255, 255, .08); }
+#close-btn { margin-left: auto; padding: .4rem .65rem; color: #fff; font-size: 1.15rem; }
+
+.tabpanel { min-height: 430px; padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid #fff; background: linear-gradient(to bottom, var(--panel-light), var(--panel)); box-shadow: 0 30px 50px rgba(0, 0, 0, .69); font-family: "Comfortaa", sans-serif; }
+.tabpanel h2 { margin-top: 0; font-family: "Hachi Maru Pop", cursive; font-size: clamp(1.65rem, 4vw, 2.3rem); }
+.lead { max-width: 740px; font-size: 1.25rem; line-height: 1.6; }
+.tabpanel p { max-width: 760px; line-height: 1.7; }
+.typing-effect { display: flex; min-height: 3rem; align-items: center; }
+.typing-effect h3 { font-family: "Hachi Maru Pop", cursive; }
+.typing-effect span { color: var(--accent); }
+
+.home-layout, .about-layout { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(190px, .6fr); gap: 2.5rem; align-items: center; }
+.home-image { order: 2; }
+.home-image img { display: block; width: min(100%, 260px); margin: auto; border: 3px solid var(--accent); border-radius: 16px; box-shadow: 10px 10px 0 rgba(0, 0, 0, .25); }
+.section-label { margin: 0; color: var(--accent); font-family: "Hachi Maru Pop", cursive; font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; }
+.skills { display: flex; flex-wrap: wrap; gap: .7rem; padding: 0; list-style: none; }
+.skills li { padding: .5rem .8rem; border: 1px solid rgba(254, 254, 0, .45); border-radius: 999px; background: rgba(0, 0, 0, .16); }
+.about-note { padding: 1.25rem; border-left: 3px solid var(--accent); background: rgba(0, 0, 0, .16); }
+
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; margin-top: 2rem; }
+.project-card { display: flex; min-height: 205px; flex-direction: column; padding: 1.35rem; border: 1px solid rgba(255, 255, 255, .15); border-radius: 10px; background: rgba(0, 0, 0, .16); }
+.project-card h3 { margin: 0 0 .5rem; font-family: "Hachi Maru Pop", cursive; font-size: 1.05rem; }
+.project-card p { margin: 0 0 1rem; }
+.project-card a { margin-top: auto; color: var(--accent); font-family: "Hachi Maru Pop", cursive; }
+.project-card a:hover { color: #fff; }
+
+.contact-info { display: grid; gap: .75rem; margin: 1.5rem 0; }
+.contact-info p { display: flex; align-items: center; gap: .8rem; margin: 0; }
+.contact-info i { width: 1.5rem; color: var(--accent); font-size: 1.35rem; text-align: center; }
+.contact-info a { color: #fff; text-decoration: none; }
+.contact-info a:hover, .contact-info a:focus-visible { color: var(--accent); }
+
+@media (max-width: 768px) {
+  .border { width: calc(100% - 1.5rem); margin: 7rem auto 1.5rem; }
+  .drawing-figure { width: 52vw; opacity: .35; }
+  .application { top: 105px; left: auto; right: 1rem; transform: none; }
+  .desktop-app img { width: 55px; height: 55px; }
+  .tablist { gap: .25rem; padding: .5rem; }
+  button { padding: .6rem .75rem; font-size: .75rem; white-space: nowrap; }
+  .tabpanel { min-height: 0; }
+  .home-layout, .about-layout { grid-template-columns: 1fr; gap: 1rem; }
+  .home-image { order: initial; }
+  .home-image img { width: 185px; }
 }
