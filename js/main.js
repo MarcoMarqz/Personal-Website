@@ -5,7 +5,20 @@ const panels = [...document.querySelectorAll('[role="tabpanel"]')];
 const windowBox = document.querySelector("#window");
 const appIcon = document.querySelector("#app-icon");
 const closeBtn = document.querySelector("#close-btn");
+const themeToggle = document.querySelector("#theme-toggle");
 let lastSelectedTabId = "home";
+
+function setTheme(isDarkMode) {
+  document.body.classList.toggle("dark-mode", isDarkMode);
+  const label = isDarkMode ? "Switch to light mode" : "Switch to dark mode";
+  themeToggle.setAttribute("aria-label", label);
+  themeToggle.title = label;
+  themeToggle.innerHTML = `<i class="fa-solid fa-${isDarkMode ? "sun" : "moon"}" aria-hidden="true"></i>`;
+  localStorage.setItem("portfolio-theme", isDarkMode ? "dark" : "light");
+}
+
+setTheme(localStorage.getItem("portfolio-theme") === "dark");
+themeToggle.addEventListener("click", () => setTheme(!document.body.classList.contains("dark-mode")));
 
 function selectTab(tab, shouldFocus = false) {
   lastSelectedTabId = tab.id;
@@ -75,4 +88,77 @@ function moveDots(x, y) {
     dot.style.setProperty("--push-y", `${dy * force}px`);
   });
 }
-document.addEventListener("pointermove", (event) => moveDots(event.clientX, event.clientY));
+const cursorCanvas = document.getElementById("cursor-canvas");
+const cursorContext = cursorCanvas.getContext("2d");
+const brushPoints = Array.from({ length: 18 }, () => ({ x: 0, y: 0 }));
+let cursorPoint = null;
+let isCursorOnPage = false;
+let isCursorOverWindow = false;
+
+function resizeCursorCanvas() {
+  const scale = window.devicePixelRatio || 1;
+  cursorCanvas.width = window.innerWidth * scale;
+  cursorCanvas.height = window.innerHeight * scale;
+  cursorContext.setTransform(scale, 0, 0, scale, 0, 0);
+  cursorContext.lineCap = "round";
+  cursorContext.lineJoin = "round";
+}
+
+function drawBrushTail() {
+  cursorContext.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+  if (cursorPoint && isCursorOnPage && !isCursorOverWindow) {
+    brushPoints[0].x += (cursorPoint.x - brushPoints[0].x) * .42;
+    brushPoints[0].y += (cursorPoint.y - brushPoints[0].y) * .42;
+
+    for (let index = 1; index < brushPoints.length; index += 1) {
+      brushPoints[index].x += (brushPoints[index - 1].x - brushPoints[index].x) * .36;
+      brushPoints[index].y += (brushPoints[index - 1].y - brushPoints[index].y) * .36;
+    }
+
+    const themeStyles = getComputedStyle(document.body);
+    cursorContext.strokeStyle = themeStyles.getPropertyValue("--trail-color").trim();
+    cursorContext.shadowBlur = 4;
+    cursorContext.shadowColor = themeStyles.getPropertyValue("--trail-glow").trim();
+    cursorContext.globalAlpha = .78;
+    cursorContext.lineWidth = 5.5;
+    cursorContext.beginPath();
+    cursorContext.moveTo(brushPoints.at(-1).x, brushPoints.at(-1).y);
+    for (let index = brushPoints.length - 2; index >= 0; index -= 1) {
+      const currentPoint = brushPoints[index + 1];
+      const nextPoint = brushPoints[index];
+      const midpointX = (currentPoint.x + nextPoint.x) / 2;
+      const midpointY = (currentPoint.y + nextPoint.y) / 2;
+      cursorContext.quadraticCurveTo(currentPoint.x, currentPoint.y, midpointX, midpointY);
+    }
+    cursorContext.lineTo(brushPoints[0].x, brushPoints[0].y);
+    cursorContext.stroke();
+    cursorContext.globalAlpha = 1;
+    cursorContext.shadowBlur = 0;
+  }
+
+  requestAnimationFrame(drawBrushTail);
+}
+
+resizeCursorCanvas();
+drawBrushTail();
+window.addEventListener("resize", resizeCursorCanvas);
+
+document.addEventListener("pointermove", (event) => {
+  moveDots(event.clientX, event.clientY);
+  if (event.pointerType === "touch") return;
+
+  isCursorOverWindow = Boolean(event.target.closest("#window"));
+  cursorPoint = { x: event.clientX, y: event.clientY };
+  if (!isCursorOnPage || isCursorOverWindow) {
+    brushPoints.forEach((point) => {
+      point.x = cursorPoint.x;
+      point.y = cursorPoint.y;
+    });
+  }
+  isCursorOnPage = true;
+});
+
+document.addEventListener("pointerleave", () => {
+  isCursorOnPage = false;
+});
