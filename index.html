@@ -14,8 +14,8 @@
   <body>
     <img src="images/mlogo-1.png" class="logo" alt="Marco Marquez" />
     <img src="images/mdr-1.png" class="drawing-figure" alt="" />
-    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
-      <i class="fa-solid fa-moon" aria-hidden="true"></i>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
+      <span class="theme-toggle__thumb" aria-hidden="true"></span>
     </button>
     <button class="application desktop-app" id="app-icon" type="button" aria-label="Open portfolio">
       <img src="images/folder-icon-lg.png" alt="" />
@@ -69,22 +69,49 @@
       <section class="tabpanel" role="tabpanel" id="projects-panel" aria-labelledby="projects" hidden>
         <p class="section-label">Selected work</p>
         <h2>Projects</h2>
-        <p class="lead">A growing collection of work in web development, software, and machine learning.</p>
+        <p class="lead">A selection of software, web, and machine learning projects I’ve built and contributed to.</p>
         <div class="projects-grid">
           <article class="project-card">
-            <h3>Portfolio Website</h3>
-            <p>This interactive desktop-inspired site is where I share my work, interests, and ways to get in touch.</p>
-            <a href="https://github.com/MarcoMarqz" target="_blank" rel="noopener noreferrer">View on GitHub <span aria-hidden="true">&rarr;</span></a>
+            <div class="project-image" role="img" aria-label="DevScope project screenshot placeholder">Add DevScope screenshot</div>
+            <div class="project-card__content">
+              <h3>DevScope</h3>
+              <p>A Python GitHub profile analyzer that turns a username into a snapshot of public work, including profile details, repositories, languages, stars, forks, and README fallbacks. Built with error handling for missing users, rate limits, and connection issues.</p>
+              <p class="tech-stack">Python · GitHub API · Flask <em></em></p>
+            </div>
           </article>
           <article class="project-card">
-            <h3>Web Development</h3>
-            <p>I build responsive interfaces with a focus on clear layouts, thoughtful interactions, and an enjoyable experience on every screen size.</p>
-            <a href="https://github.com/MarcoMarqz" target="_blank" rel="noopener noreferrer">Explore my repositories <span aria-hidden="true">&rarr;</span></a>
+            <div class="project-image" role="img" aria-label="Parkinson's Disease Detection project screenshot placeholder">Add project screenshot</div>
+            <div class="project-card__content">
+              <h3>Parkinson’s Disease Detection &amp; Severity Modeling</h3>
+              <p>An AI4ALL team project using biomedical voice recordings to distinguish healthy individuals from Parkinson’s patients. The work also explored severity prediction and led to a careful evaluation-driven pivot after voice features proved insufficient for forecasting progression.</p>
+              <p class="tech-stack">Python · scikit-learn · XGBoost · LightGBM · Streamlit</p>
+            </div>
           </article>
           <article class="project-card">
-            <h3>Learning in Public</h3>
-            <p>I’m continually expanding this collection as I take on new coursework, experiments, and collaborative projects.</p>
-            <a href="#contact" data-tab-target="contact">Let’s collaborate <span aria-hidden="true">&rarr;</span></a>
+            <div class="project-image" role="img" aria-label="Wordle Remake project screenshot placeholder">Add Wordle screenshot</div>
+            <div class="project-card__content">
+              <h3>Wordle Remake</h3>
+              <p>A from-scratch recreation of Wordle that implements guess validation, color-coded feedback, and win/loss states with vanilla JavaScript and clean game-state logic.</p>
+              <p class="tech-stack">JavaScript · HTML · CSS</p>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-image" role="img" aria-label="Fuego Nuevo USA website screenshot placeholder">Add Fuego Nuevo screenshot</div>
+            <div class="project-card__content">
+              <h3>Fuego Nuevo USA Website</h3>
+              <p>A welcoming multi-page website for a folklórico dance group, with dedicated events, gallery, about, and join pages. Designed and developed independently from layout and styling through interactivity.</p>
+              <p class="tech-stack">HTML · CSS · JavaScript</p>
+              <a href="https://marcomarqz.github.io/Fuego-Nuevo-Website" target="_blank" rel="noopener noreferrer">Visit live site <span aria-hidden="true">&rarr;</span></a>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-image" role="img" aria-label="Weather-Reactive Calendar project screenshot placeholder">Add calendar screenshot</div>
+            <div class="project-card__content">
+              <h3>Weather-Reactive Calendar</h3>
+              <p>An in-progress Flask app that flags weather-dependent events when forecasts look bad, then suggests a better open calendar slot. It combines OpenWeather forecasts with Google Calendar availability, full CRUD, OAuth, SQLite, and unit tests.</p>
+              <p class="tech-stack">Python · Flask · SQLite · OpenWeather API · Google Calendar API</p>
+              <span class="project-status">In progress</span>
+            </div>
           </article>
         </div>
       </section>

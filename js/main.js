@@ -12,8 +12,8 @@ function setTheme(isDarkMode) {
   document.body.classList.toggle("dark-mode", isDarkMode);
   const label = isDarkMode ? "Switch to light mode" : "Switch to dark mode";
   themeToggle.setAttribute("aria-label", label);
+  themeToggle.setAttribute("aria-pressed", String(isDarkMode));
   themeToggle.title = label;
-  themeToggle.innerHTML = `<i class="fa-solid fa-${isDarkMode ? "sun" : "moon"}" aria-hidden="true"></i>`;
   localStorage.setItem("portfolio-theme", isDarkMode ? "dark" : "light");
 }
 
