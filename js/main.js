@@ -162,3 +162,10 @@ document.addEventListener("pointermove", (event) => {
 document.addEventListener("pointerleave", () => {
   isCursorOnPage = false;
 });
+
+document.querySelectorAll(".home-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    const targetTab = document.getElementById(button.dataset.target);
+    if (targetTab) targetTab.click();
+  });
+});

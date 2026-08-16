@@ -3,136 +3,555 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Marco Marquez's software development portfolio." />
+
+    <meta
+      name="description"
+      content="Marco Marquez's software development portfolio."
+    />
+
     <title>Marco Marquez | Portfolio</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600&family=Hachi+Maru+Pop&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600&family=Hachi+Maru+Pop&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
     <link rel="stylesheet" href="css/styles.css" />
   </head>
+
   <body>
+    <!-- Logo -->
     <img src="images/mlogo-1.png" class="logo" alt="Marco Marquez" />
+
+    <!-- Decorative figure -->
     <img src="images/mdr-1.png" class="drawing-figure" alt="" />
-    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
+
+    <!-- Theme toggle -->
+    <button
+      class="theme-toggle"
+      id="theme-toggle"
+      type="button"
+      aria-label="Switch to dark mode"
+      aria-pressed="false"
+      title="Switch to dark mode"
+    >
       <span class="theme-toggle__thumb" aria-hidden="true"></span>
     </button>
-    <button class="application desktop-app" id="app-icon" type="button" aria-label="Open portfolio">
+
+    <!-- Desktop portfolio icon -->
+    <button
+      class="application desktop-app"
+      id="app-icon"
+      type="button"
+      aria-label="Open portfolio"
+    >
       <img src="images/folder-icon-lg.png" alt="" />
       <span>Portfolio</span>
     </button>
+
+    <!-- Background effects -->
     <div id="bg-dots" aria-hidden="true"></div>
     <canvas id="cursor-canvas" aria-hidden="true"></canvas>
 
+    <!-- Main portfolio window -->
     <main class="border" id="window">
+      <!-- Navigation -->
       <div class="tablist" role="tablist" aria-label="Portfolio sections">
-        <button role="tab" aria-selected="true" aria-controls="home-panel" id="home" tabindex="0">Home</button>
-        <button role="tab" aria-selected="false" aria-controls="about-panel" id="about" tabindex="-1">About Me</button>
-        <button role="tab" aria-selected="false" aria-controls="projects-panel" id="projects" tabindex="-1">Projects</button>
-        <button role="tab" aria-selected="false" aria-controls="contact-panel" id="contact" tabindex="-1">Contact</button>
-        <button id="close-btn" type="button" aria-label="Close portfolio">&times;</button>
+        <button
+          role="tab"
+          aria-selected="true"
+          aria-controls="home-panel"
+          id="home"
+          tabindex="0"
+        >
+          Home
+        </button>
+
+        <button
+          role="tab"
+          aria-selected="false"
+          aria-controls="about-panel"
+          id="about"
+          tabindex="-1"
+        >
+          About Me
+        </button>
+
+        <button
+          role="tab"
+          aria-selected="false"
+          aria-controls="projects-panel"
+          id="projects"
+          tabindex="-1"
+        >
+          Projects
+        </button>
+
+        <button
+          role="tab"
+          aria-selected="false"
+          aria-controls="contact-panel"
+          id="contact"
+          tabindex="-1"
+        >
+          Contact
+        </button>
+
+        <button id="close-btn" type="button" aria-label="Close portfolio">
+          &times;
+        </button>
       </div>
 
-      <section class="tabpanel" role="tabpanel" id="home-panel" aria-labelledby="home">
+      <!-- =====================================================
+           HOME
+      ====================================================== -->
+
+      <section
+        class="tabpanel"
+        role="tabpanel"
+        id="home-panel"
+        aria-labelledby="home"
+      >
         <div class="home-layout">
-          <div>
+          <div class="home-content">
             <p class="section-label">Welcome</p>
-            <div class="typing-effect"><h3>Hi! I'm <span class="auto-type"></span></h3></div>
-            <p class="lead">A Computer Science student at Indiana University, interested in software engineering, web development, and machine learning.</p>
-            <p>I enjoy turning ideas into thoughtful, useful experiences—whether that means building a website, developing an application, or exploring a machine learning problem.</p>
+
+            <div class="typing-effect">
+              <h1>Hi, I'm <span class="auto-type"></span>.</h1>
+            </div>
+
+            <h2>I build things for the web and beyond.</h2>
+
+            <p class="lead">
+              I'm a Computer Science student at Indiana University focused on
+              software engineering, web development, and machine learning.
+            </p>
+
+            <p>
+              I enjoy turning ideas into things people can actually use—whether
+              that's a web application, a developer tool, an interactive
+              experience, or a machine learning project.
+            </p>
+
+            <!-- Home buttons -->
+            <div class="home-actions">
+              <button class="home-button" type="button" data-target="projects">
+                View My Work
+                <span aria-hidden="true">&rarr;</span>
+              </button>
+
+              <button
+                class="home-button home-button--secondary"
+                type="button"
+                data-target="contact"
+              >
+                Get In Touch
+                <span aria-hidden="true">&rarr;</span>
+              </button>
+            </div>
+
+            <!-- Areas of focus -->
+            <div class="home-interests" aria-label="Areas of focus">
+              <div class="interest-item">
+                <span class="interest-icon" aria-hidden="true">
+                  <i class="fa-solid fa-code"></i>
+                </span>
+
+                <div>
+                  <strong> Software Engineering </strong>
+
+                  <span> Building useful applications </span>
+                </div>
+              </div>
+
+              <div class="interest-item">
+                <span class="interest-icon" aria-hidden="true">
+                  <i class="fa-solid fa-globe"></i>
+                </span>
+
+                <div>
+                  <strong> Web Development </strong>
+
+                  <span> Creating interactive experiences </span>
+                </div>
+              </div>
+
+              <div class="interest-item">
+                <span class="interest-icon" aria-hidden="true">
+                  <i class="fa-solid fa-brain"></i>
+                </span>
+
+                <div>
+                  <strong> Machine Learning </strong>
+
+                  <span> Exploring intelligent systems </span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="home-image"><img src="images/hdsht.png" alt="Marco Marquez" /></div>
+
+          <!-- Home image -->
+          <div class="home-image">
+            <img src="images/hdsht.png" alt="Marco Marquez" />
+          </div>
         </div>
       </section>
 
-      <section class="tabpanel" role="tabpanel" id="about-panel" aria-labelledby="about" hidden>
+      <!-- =====================================================
+           ABOUT
+      ====================================================== -->
+
+      <section
+        class="tabpanel"
+        role="tabpanel"
+        id="about-panel"
+        aria-labelledby="about"
+        hidden
+      >
         <div class="about-layout">
-          <div>
+          <div class="about-main">
             <p class="section-label">A little more about me</p>
+
             <h2>Curious by nature, practical by design.</h2>
-            <p class="lead">I’m Marco, a Computer Science student with a minor in Web Design and Development at Indiana University.</p>
-            <p>I like the process of taking a challenging problem apart, learning what I need to solve it, and shaping the result into something clear and approachable for people to use.</p>
-            <p>My interests sit at the intersection of software engineering, interactive web experiences, and machine learning. I’m especially motivated by projects that make technology feel more useful, understandable, and human.</p>
+
+            <p class="lead">
+              I'm Marco, a Computer Science student at Indiana University with a
+              minors in Web Design and Development and Data Science.
+
+         <p>
+  I enjoy building things, figuring out how they work, and finding ways to
+  make them better. When I come across a problem, I like breaking it down,
+  learning what I need, and working through it until I find a solution that
+  actually works.
+</p>
+
+<p>
+  I like creating projects where I can combine my
+  interests and turn an idea into something people can  use. For me,
+  the most rewarding part is taking something from an idea to a
+  finished project that feels useful, works well, and looks good.
+</p>
+
+
+            <!-- What I build -->
+            <div class="about-section">
+              <p class="section-label">What I build</p>
+
+              <div class="about-cards">
+                <div class="about-card">
+                  <span class="about-card-icon" aria-hidden="true">
+                    <i class="fa-solid fa-code"></i>
+                  </span>
+
+                  <h3>Software</h3>
+
+                  <p>
+                    Applications and tools designed around solving practical
+                    problems.
+                  </p>
+                </div>
+
+                <div class="about-card">
+                  <span class="about-card-icon" aria-hidden="true">
+                    <i class="fa-solid fa-laptop-code"></i>
+                  </span>
+
+                  <h3>Web</h3>
+
+                  <p>
+                    Responsive websites and interactive experiences that feel
+                    intuitive to use.
+                  </p>
+                </div>
+
+                <div class="about-card">
+                  <span class="about-card-icon" aria-hidden="true">
+                    <i class="fa-solid fa-brain"></i>
+                  </span>
+
+                  <h3>Machine Learning</h3>
+
+                  <p>
+                    Exploring data, models, and responsible ways to apply AI.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <!-- About sidebar -->
           <aside class="about-note">
-            <p class="section-label">Tools I’m growing with</p>
-            <ul class="skills" aria-label="Areas of interest">
-              <li>Software engineering</li>
-              <li>Web development</li>
-              <li>Machine learning</li>
-              <li>UI design</li>
-            </ul>
+            <div class="about-tools">
+              <p class="section-label">Tech & Tools</p>
+              <ul class="skills" aria-label="Technologies I work with">
+                <li>Python</li>
+                <li>JavaScript</li>
+                <li>Flask</li>
+                <li>Git/GitHub</li>
+                <li>scikit-learn</li>
+                <li>XGBoost</li>
+                <li>LightGBM</li>
+                <li>Streamlit</li>
+                <li>SQLite</li>
+                <li>REST APIs</li>
+              </ul>
+            </div>
           </aside>
         </div>
       </section>
 
-      <section class="tabpanel" role="tabpanel" id="projects-panel" aria-labelledby="projects" hidden>
+      <!-- =====================================================
+           PROJECTS
+      ====================================================== -->
+
+      <section
+        class="tabpanel"
+        role="tabpanel"
+        id="projects-panel"
+        aria-labelledby="projects"
+        hidden
+      >
         <p class="section-label">Selected work</p>
+
         <h2>Projects</h2>
-        <p class="lead">A selection of software, web, and machine learning projects I’ve built and contributed to.</p>
+
+        <p class="lead">
+          A selection of software, web, and machine learning projects I've built
+          and contributed to.
+        </p>
+
         <div class="projects-grid">
+          <!-- DevScope -->
           <article class="project-card">
-            <div class="project-image" role="img" aria-label="DevScope project screenshot placeholder">Add DevScope screenshot</div>
+            <div class="project-image">
+              <img src="images/dvscp.png" alt="DevScope project screenshot" />
+            </div>
+
             <div class="project-card__content">
               <h3>DevScope</h3>
-              <p>A Python GitHub profile analyzer that turns a username into a snapshot of public work, including profile details, repositories, languages, stars, forks, and README fallbacks. Built with error handling for missing users, rate limits, and connection issues.</p>
-              <p class="tech-stack">Python · GitHub API · Flask <em></em></p>
+
+              <p>
+                A Python GitHub profile analyzer that turns a username into a
+                snapshot of public work, including profile details,
+                repositories, languages, stars, forks, and README fallbacks.
+                Built with error handling for missing users, rate limits, and
+                connection issues.
+              </p>
+
+              <p class="tech-stack">Python · GitHub API · Flask</p>
+
+              <a
+                href="https://github.com/ameer11838/DevScope"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Github Link
+                <span aria-hidden="true">&rarr;</span>
+              </a>
             </div>
           </article>
+
+          <!-- Parkinson's -->
           <article class="project-card">
-            <div class="project-image" role="img" aria-label="Parkinson's Disease Detection project screenshot placeholder">Add project screenshot</div>
+            <div class="project-image">
+              <img
+                src="images/prksl.png"
+                alt="Parkinson's Disease Detection project screenshot"
+              />
+            </div>
+
             <div class="project-card__content">
-              <h3>Parkinson’s Disease Detection &amp; Severity Modeling</h3>
-              <p>An AI4ALL team project using biomedical voice recordings to distinguish healthy individuals from Parkinson’s patients. The work also explored severity prediction and led to a careful evaluation-driven pivot after voice features proved insufficient for forecasting progression.</p>
-              <p class="tech-stack">Python · scikit-learn · XGBoost · LightGBM · Streamlit</p>
+              <h3>Parkinson's Disease Detection &amp; Severity Modeling</h3>
+
+              <p>
+                An AI4ALL team project using biomedical voice recordings to
+                distinguish healthy individuals from Parkinson's patients. The
+                work also explored severity prediction and led to a careful
+                evaluation-driven pivot after voice features proved insufficient
+                for forecasting progression.
+              </p>
+
+              <p class="tech-stack">
+                Python · scikit-learn · XGBoost · LightGBM · Streamlit
+              </p>
+
+              <a
+                href="https://parkinsondisease-ai4all-group01c.streamlit.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                StreamLit Link
+                <span aria-hidden="true">&rarr;</span>
+              </a>
             </div>
           </article>
+
+          <!-- Wordle -->
           <article class="project-card">
-            <div class="project-image" role="img" aria-label="Wordle Remake project screenshot placeholder">Add Wordle screenshot</div>
+            <div class="project-image">
+              <img
+                src="images/wrdrmk.png"
+                alt="Wordle Remake project screenshot"
+              />
+            </div>
+
             <div class="project-card__content">
               <h3>Wordle Remake</h3>
-              <p>A from-scratch recreation of Wordle that implements guess validation, color-coded feedback, and win/loss states with vanilla JavaScript and clean game-state logic.</p>
+
+              <p>
+                A from-scratch recreation of Wordle that implements guess
+                validation, color-coded feedback, and win/loss states with
+                vanilla JavaScript and clean game-state logic.
+              </p>
+
               <p class="tech-stack">JavaScript · HTML · CSS</p>
             </div>
           </article>
+
+          <!-- Fuego Nuevo -->
           <article class="project-card">
-            <div class="project-image" role="img" aria-label="Fuego Nuevo USA website screenshot placeholder">Add Fuego Nuevo screenshot</div>
+            <div class="project-image">
+              <img
+                src="images/fnweb.png"
+                alt="Fuego Nuevo USA website screenshot"
+              />
+            </div>
+
             <div class="project-card__content">
               <h3>Fuego Nuevo USA Website</h3>
-              <p>A welcoming multi-page website for a folklórico dance group, with dedicated events, gallery, about, and join pages. Designed and developed independently from layout and styling through interactivity.</p>
+
+              <p>
+                A welcoming multi-page website for a folklórico dance group,
+                with dedicated events, gallery, about, and join pages. Designed
+                and developed independently from layout and styling through
+                interactivity.
+              </p>
+
               <p class="tech-stack">HTML · CSS · JavaScript</p>
-              <a href="https://marcomarqz.github.io/Fuego-Nuevo-Website" target="_blank" rel="noopener noreferrer">Visit live site <span aria-hidden="true">&rarr;</span></a>
+
+              <a
+                href="https://marcomarqz.github.io/Fuego-Nuevo-Website"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit live site
+                <span aria-hidden="true">&rarr;</span>
+              </a>
             </div>
           </article>
+
+          <!-- Weather Calendar -->
           <article class="project-card">
-            <div class="project-image" role="img" aria-label="Weather-Reactive Calendar project screenshot placeholder">Add calendar screenshot</div>
+            <div
+              class="project-image"
+              role="img"
+              aria-label="Weather-Reactive Calendar project screenshot placeholder"
+            >
+              x
+            </div>
+
             <div class="project-card__content">
               <h3>Weather-Reactive Calendar</h3>
-              <p>An in-progress Flask app that flags weather-dependent events when forecasts look bad, then suggests a better open calendar slot. It combines OpenWeather forecasts with Google Calendar availability, full CRUD, OAuth, SQLite, and unit tests.</p>
-              <p class="tech-stack">Python · Flask · SQLite · OpenWeather API · Google Calendar API</p>
-              <span class="project-status">In progress</span>
+
+              <p>
+                An in-progress Flask app that flags weather-dependent events
+                when forecasts look bad, then suggests a better open calendar
+                slot. It combines OpenWeather forecasts with Google Calendar
+                availability, full CRUD, OAuth, SQLite, and unit tests.
+              </p>
+
+              <p class="tech-stack">
+                Python · Flask · SQLite · OpenWeather API · Google Calendar API
+              </p>
+
+              <span class="project-status"> In progress </span>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="tabpanel" role="tabpanel" id="contact-panel" aria-labelledby="contact" hidden>
+      <!-- =====================================================
+           CONTACT
+      ====================================================== -->
+
+      <section
+        class="tabpanel"
+        role="tabpanel"
+        id="contact-panel"
+        aria-labelledby="contact"
+        hidden
+      >
         <p class="section-label">Get in touch</p>
+
         <h2>Contact</h2>
-        <p class="lead">I’m always interested in discussing technology, software development, internships, and collaborative projects.</p>
+
+        <p class="lead">
+          I'm always interested in discussing technology, software development,
+          internships, and collaborative projects.
+        </p>
+
         <div class="contact-info">
-          <p><i class="fa-brands fa-linkedin" aria-hidden="true"></i><a href="https://www.linkedin.com/in/marco-marquez-us1/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
-          <p><i class="fa-brands fa-github" aria-hidden="true"></i><a href="https://github.com/MarcoMarqz" target="_blank" rel="noopener noreferrer">GitHub</a></p>
-          <p><i class="fa-solid fa-envelope" aria-hidden="true"></i><a href="mailto:marcomarquez.a1@gmail.com">marcomarquez.a1@gmail.com</a></p>
+          <p>
+            <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+
+            <a
+              href="https://www.linkedin.com/in/marco-marquez-us1/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+          </p>
+
+          <p>
+            <i class="fa-brands fa-github" aria-hidden="true"></i>
+
+            <a
+              href="https://github.com/MarcoMarqz"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+          </p>
+
+          <p>
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+
+            <a href="mailto:marcomarquez.a1@gmail.com">
+              marcomarquez.a1@gmail.com
+            </a>
+          </p>
         </div>
-        <p>Feel free to reach out with an opportunity, a question, or just to say hello.</p>
+
+        <p>
+          Feel free to reach out with an opportunity, a question, or just to say
+          hello.
+        </p>
       </section>
     </main>
 
+    <!-- Main JavaScript -->
     <script src="js/main.js"></script>
+
+    <!-- Typed.js -->
     <script src="https://unpkg.com/typed.js@3.0.0/dist/typed.umd.js"></script>
+
     <script>
-      new Typed(".auto-type", { strings: ["Marco", "Marquez"], typeSpeed: 150, backSpeed: 90, loop: true });
+      new Typed(".auto-type", {
+        strings: ["Marco"],
+        typeSpeed: 150,
+        backSpeed: 90,
+        loop: true,
+      });
     </script>
   </body>
 </html>
