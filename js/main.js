@@ -8,6 +8,9 @@ const closeBtn = document.querySelector("#close-btn");
 const themeToggle = document.querySelector("#theme-toggle");
 let lastSelectedTabId = "home";
 
+// Start with the portfolio window closed
+windowBox.hidden = true;
+
 function setTheme(isDarkMode) {
   document.body.classList.toggle("dark-mode", isDarkMode);
   const label = isDarkMode ? "Switch to light mode" : "Switch to dark mode";
@@ -17,7 +20,7 @@ function setTheme(isDarkMode) {
   localStorage.setItem("portfolio-theme", isDarkMode ? "dark" : "light");
 }
 
-setTheme(localStorage.getItem("portfolio-theme") === "dark");
+setTheme(localStorage.getItem("portfolio-theme") !== "light");
 themeToggle.addEventListener("click", () => setTheme(!document.body.classList.contains("dark-mode")));
 
 function selectTab(tab, shouldFocus = false) {

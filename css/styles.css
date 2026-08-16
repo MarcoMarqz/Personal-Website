@@ -260,8 +260,8 @@ button[aria-selected="true"] { z-index: 2; border-color: rgba(255, 255, 255, .08
   }
 
   .application {
-    bottom: min(440px, 74vw);
-    left: calc(50% + min(190px, 42vw));
+    bottom: min(450px, 74vw);
+    left: calc(45% + min(190px, 42vw));
   }
 
   .theme-toggle {
@@ -280,8 +280,8 @@ button[aria-selected="true"] { z-index: 2; border-color: rgba(255, 255, 255, .08
   }
 
   button {
-    padding: .6rem .75rem;
-    font-size: .75rem;
+    padding: .6rem .55rem;
+    font-size: .60rem;
     white-space: nowrap;
   }
 
